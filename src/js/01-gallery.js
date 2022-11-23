@@ -5,25 +5,19 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 // Delegation
 
-const galleryRef = document.querySelector('div.gallery');
+const galleryRef = document.querySelector('.gallery');
 
-// const modal = basicLightbox.create(`
-// <div class="modal">
-// </div>
-// `);
-
-// galleryRef.addEventListener('click', galleryClickHandler);
 
 let galleryMarkup = galleryItems
-.map((item) => {
+.map(({preview, original, description}) => {
     return `
 <div class="gallery__item"> 
-    <a class="gallery__link" href="${item.original}">
+    <a class="gallery__link" href="${original}">
         <img
         class="gallery__image"
-        src="${item.preview}"
-        data-source="${item.original}"
-        alt="${item.description}"
+        src="${preview}"
+        data-source="${original}"
+        alt="${description}"
         />
     </a>
 </div>`;
